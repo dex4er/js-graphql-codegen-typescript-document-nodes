@@ -2,7 +2,7 @@ import { PluginFunction, PluginValidateFn, Types } from '@graphql-codegen/plugin
 import { GraphQLSchema, OperationDefinitionNode } from 'graphql';
 import { print } from 'graphql/language/printer';
 
-export type NamingConvention = 'lowerCamelCase' | 'UPPER_CASE';
+export type NamingConvention = 'lowerCamelCase' | 'UpperCamelCase' | 'UPPER_CASE';
 
 function upperFirst(str: string): string {
   return str[0].toUpperCase() + str.slice(1);
@@ -28,6 +28,8 @@ function upperize(str: string): string {
 function useNamingConvention(str: string, namingConvention?: NamingConvention): string {
   if (namingConvention === 'lowerCamelCase') {
     return camelize(str);
+  } else if (namingConvention === 'UpperCamelCase') {
+    return upperFirst(camelize(str));
   } else if (namingConvention === 'UPPER_CASE') {
     return upperize(str);
   } else {
@@ -40,7 +42,8 @@ export interface TypeScriptDocumentNodesPluginConfig {
    * @name namingConvention
    * @type string
    * @default false
-   * @description Generates variable names in choosen naming convention (lowerCamelCase or UPPER_CASE)
+   * @description Generates variable names in choosen naming convention
+   * (lowerCamelCase, UpperCamelCase or UPPER_CASE)
    *
    * @example
    * ```yml

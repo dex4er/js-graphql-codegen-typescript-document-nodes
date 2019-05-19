@@ -69,6 +69,7 @@ export const viewerQuery: DocumentNode = gql`
 Changes GraphQL operation name with a naming convention:
 
 * lowerCamelCase
+* UpperCamelCase
 * UPPER_CASE
 
 ### namePrefix

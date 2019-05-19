@@ -171,6 +171,36 @@ describe('graphql-codegen typescript-graphql-document-nodes', () => {
     validateTs(result);
   });
 
+  it('Should generate module with a name as a camel case', async () => {
+    const result = plugin(
+      null,
+      [
+        {
+          filePath: 'some/file/my-query.graphql',
+          content: parse(/* GraphQL */ `
+            query MyQuery {
+              field
+            }
+          `)
+        }
+      ],
+      { namingConvention: 'UpperCamelCase' },
+      { outputFile: '' }
+    ) as string;
+
+    expect(result).toBeSimilarStringTo(`
+      import { DocumentNode } from 'graphql';
+      import gql from 'graphql-tag';
+
+      export const MyQuery: DocumentNode = gql\`
+        query MyQuery {
+          field
+        }
+      \`;
+    `);
+    validateTs(result);
+  });
+
   it('Should generate module with a name as an upper case', async () => {
     const result = plugin(
       null,
