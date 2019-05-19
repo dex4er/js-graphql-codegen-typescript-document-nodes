@@ -38,7 +38,7 @@
     "build": "npm run compile",
     "clean": "shx rm -rf dist",
     "compile": "tsc -m esnext --outDir dist/esnext && tsc -m commonjs --outDir dist/commonjs",
-    "lint": "tsc --pretty -p . && tsc --pretty -p tests && tslint -p . && tslint -p tests && prettier --ignore-path .gitignore --list-different '**/*.js' '**/*.json' '**/*.ts' '**/*.yml' && markdownlint \"*.md\"",
+    "lint": "tsc --noemit --pretty -p . && tsc --pretty -p tests && tslint -p . && tslint -p tests && prettier --ignore-path .gitignore --list-different '**/*.js' '**/*.json' '**/*.ts' '**/*.yml' && markdownlint \"*.md\"",
     "postpublish": "git tag v$npm_package_version -a -m \"Release v$npm_package_version\" && git push --tags",
     "prepack": "npm run build",
     "pretest": "npm run lint",
