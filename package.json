@@ -41,7 +41,8 @@
     "lint": "tsc --pretty -p . && tsc --pretty -p tests && tslint -p . && tslint -p tests && prettier --ignore-path .gitignore --list-different '**/*.js' '**/*.json' '**/*.ts' '**/*.yml' && markdownlint \"*.md\"",
     "prepack": "npm run build",
     "pretest": "npm run lint",
-    "test": "jest --config jest.config.js"
+    "test": "npm run test:spec",
+    "test:spec": "jest --config jest.config.js"
   },
   "main": "dist/commonjs/index.js",
   "module": "dist/esnext/index.js",
