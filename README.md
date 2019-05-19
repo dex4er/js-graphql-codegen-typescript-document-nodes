@@ -2,7 +2,7 @@
 
 <!-- markdownlint-disable MD013 -->
 
-[![Build Status](https://secure.travis-ci.org/dex4er/js-graphql-codegen-typescript-document-nodes.svg)](http://travis-ci.org/dex4er/js-graphql-codegen-typescript-document-nodes)
+[![Build Status](https://secure.travis-ci.org/dex4er/js-graphql-codegen-typescript-document-nodes.svg)](http://travis-ci.org/dex4er/js-graphql-codegen-typescript-document-nodes) [![npm](https://img.shields.io/npm/v/graphql-codegen-typescript-document-nodes.svg)](https://www.npmjs.com/package/graphql-codegen-typescript-document-nodes)
 
 <!-- markdownlint-enable MD013 -->
 
