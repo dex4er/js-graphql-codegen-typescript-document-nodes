@@ -1,4 +1,4 @@
-# ts-node-github-api-example
+# graphql-codegen-typescript-document-nodes
 
 <!-- markdownlint-disable MD013 -->
 
