@@ -5,16 +5,18 @@ language: node_js
 matrix:
   include:
     - node_js: 'node'
-      env: NPM_RUN_SCRIPT=test NPM_AUDIT=true
+      env: NPM_AUDIT=yes NPM_PACK=yes
     - node_js: '10'
     - node_js: '8'
 
 install:
+  - set -e
   - npm install
   - if [ "$NPM_AUDIT" = true ]; then npm audit; fi
 
 script:
-  - npm run ${NPM_RUN_SCRIPT:-test:spec}
+  - if [ -n "$NPM_PACK" ]; then npm pack; fi
+  - npm run test:spec
+  - git diff --stat --exit-code
+  - for f in $(git ls-files --others --exclude-standard); do git diff --no-index --stat --exit-code /dev/null $next; done
   - npm run clean
-  - git add .
-  - git diff-index --quiet HEAD
