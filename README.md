@@ -49,7 +49,7 @@ query Viewer {
 It will generate following Typescript code:
 
 ```ts
-import {DocumentNode} from 'graphql';
+import { DocumentNode } from 'graphql';
 import gql from 'graphql-tag';
 
 export const viewerQuery: DocumentNode = gql`
@@ -66,11 +66,41 @@ export const viewerQuery: DocumentNode = gql`
 
 ### namingConvention
 
-Changes GraphQL operation name with a naming convention:
+Allow you to override the naming convention of the output. You can either
+override all namings, or specify an object with specific custom naming
+convention per output. The format of the converter must be a valid
+`module#method`. You can also use "keep" to keep all GraphQL names as-is.
+Additionally you can set `transformUnderscore` to `true` if you want to
+override the default behaviour, which is to preserve underscores.
 
-* lowerCamelCase
-* UpperCamelCase
-* UPPER_CASE
+Override All Names:
+
+```yml
+config:
+  namingConvention: change-case#lowerCase
+```
+
+Upper-case enum values:
+
+```yml
+config:
+  namingConvention: change-case#pascalCase
+```
+
+Keep:
+
+```yml
+config:
+  namingConvention: keep
+```
+
+Transform Underscores:
+
+```yml
+config:
+  namingConvention: change-case#pascalCase
+  transformUnderscore: true
+```
 
 ### namePrefix
 
