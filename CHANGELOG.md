@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.1.1 2019-07-05
+
+- Bugfix for `noGraphQLTag` option.
+
 ## v2.1.0 2019-07-05
 
 - New option `noGraphQLTag` generates document node object without
