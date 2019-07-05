@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.1.0 2019-07-05
+
+- New option `noGraphQLTag` generates document node object without
+  `graphql-tag` usage.
+
 ## v2.0.0 2019-07-01
 
 - `namingConvention` config option is now the same as for `base-visitor` (`module#method`).

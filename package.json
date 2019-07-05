@@ -1,6 +1,6 @@
 {
   "name": "graphql-codegen-typescript-document-nodes",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "GraphQL Code Generator plugin for generating TypeScript modules with embedded GraphQL document nodes",
   "repository": {
     "type": "git",
